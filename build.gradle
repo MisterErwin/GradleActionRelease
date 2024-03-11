@@ -14,7 +14,16 @@ jar {
 println("Using version: " + project.getVersion())
 println("Using GITHUB_ACTOR: " + System.getenv("GITHUB_ACTOR"))
 
+
+group="es.luepg.test"
+
 publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+    }
+
+  }
   repositories {
     maven {
       name = "GitHubPackages"
