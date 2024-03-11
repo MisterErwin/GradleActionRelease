@@ -23,6 +23,6 @@ jobs:
       echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
       echo "Tag name from github.ref_name: ${{  github.ref_name }}"
    - name: Publish package
-     run: gradle publish
+     run: gradle publish --info
      env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -12,6 +12,7 @@ jar {
 }
 
 println("Using version: " + project.getVersion())
+println("Using GITHUB_ACTOR: " + System.getenv("GITHUB_ACTOR"))
 
 publishing {
   repositories {
@@ -24,4 +25,8 @@ publishing {
       }
     }
   }
+}
+
+publish.configure {
+  outputs.upToDateWhen {false}
 }
