@@ -21,6 +21,8 @@ jobs:
       echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
       echo "Tag name from github.ref_name: ${{  github.ref_name }}"
    - name: Publish package
-     run: ./gradlew publish
+     # pass the tag as the version property
+     run: gradle publish -Pversion="$MC_RELEASE_VERSION" --info
      env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      MC_RELEASE_VERSION: ${{ github.ref_name }}
